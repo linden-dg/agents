@@ -27,6 +27,7 @@ These run only when requested. This keeps expensive, interactive, or highly opin
 | --- | --- |
 | `bruh` | Restate the last message in plain human language, with no jargon. |
 | `canon` | Create or revisit the stable definitions in `docs/CANON.md`. |
+| `commit` | Describe and finalize the current Jujutsu change. |
 | `deslop` | Clean a named scope or current diff without changing behavior. |
 | `refine-scope` | Turn a vague idea or draft spec into an agreed planning brief. |
 | `architect` | Design types, ownership, interfaces, and flows before implementation. |

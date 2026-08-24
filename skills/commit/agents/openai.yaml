@@ -1,0 +1,5 @@
+interface:
+  display_name: "Commit"
+  short_description: "Finalize the current Jujutsu change cleanly"
+policy:
+  allow_implicit_invocation: false
