@@ -1,10 +1,12 @@
 ---
 name: test-seams
-description: Explicit-only workflow for protecting selected public seams with behavior tests. Use only when the user asks to choose or test important seams, requests test-first work at an agreed interface, or explicitly invokes this skill.
+description: Protect selected public seams with behavior tests worth keeping.
 disable-model-invocation: true
 ---
 
 # Test seams
+
+Run only when the user explicitly invokes this skill.
 
 Protect selected public seams with tests worth keeping. Agree which seams and behaviors matter before writing tests. For each behavior selected for protection, use the red → green loop described below.
 

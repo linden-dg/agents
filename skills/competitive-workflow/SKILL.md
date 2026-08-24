@@ -1,10 +1,12 @@
 ---
 name: competitive-workflow
-description: "Explicit-only competitive workflow that runs independent attempts against one settled brief, selects a base, incorporates the strongest parts, and verifies the result. Use only when the user invokes competitive-workflow or directly requests competing attempts."
+description: Run independent attempts against one settled brief, select a base, incorporate the strongest parts, and verify the result.
 disable-model-invocation: true
 ---
 
 # Competitive workflow
+
+Run only when the user explicitly invokes this skill.
 
 Fan out N parallel attempts at the same task. Read every candidate end to end. Pick the strongest as the base. Graft the best ideas from the others into it. Verify the synthesized result.
 

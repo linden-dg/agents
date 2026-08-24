@@ -1,10 +1,12 @@
 ---
 name: improve-codebase-architecture
-description: Explicit-only read-only scan for high-value opportunities to deepen modules and improve interfaces, ownership, testability, and navigability. Use only when directly invoked.
+description: Find and rank architectural improvements without editing the codebase.
 disable-model-invocation: true
 ---
 
 # Improve Codebase Architecture
+
+Run only when the user explicitly invokes this skill.
 
 Find architectural friction and propose a short ranked set of deepening opportunities. Do not edit the repository, create domain documentation, or record decisions during discovery.
 

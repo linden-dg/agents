@@ -1,10 +1,12 @@
 ---
 name: deslop
-description: Explicit-only cleanup of AI-generated code slop in a user-named scope or the current diff. Use only when the user invokes deslop or directly asks for this cleanup.
+description: Remove AI-generated code slop from a named scope or the current diff.
 disable-model-invocation: true
 ---
 
 # Remove AI code slop
+
+Run only when the user explicitly invokes this skill.
 
 Clean the scope the user named. If none was named, inspect the current diff against the repository's detected base branch. Do not assume the base is `main`.
 

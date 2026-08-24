@@ -1,10 +1,12 @@
 ---
 name: canon
-description: Explicit-only workshop for creating or revisiting docs/CANON.md through a focused interview about stable project language. Use only when the user invokes canon or asks to develop the project's canon.
+description: Create or revise docs/CANON.md through a focused interview about stable project language.
 disable-model-invocation: true
 ---
 
 # Canon
+
+Run only when the user explicitly invokes this skill.
 
 Create or revise `docs/CANON.md`, the project's small set of authoritative definitions.
 

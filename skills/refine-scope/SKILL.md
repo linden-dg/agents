@@ -1,8 +1,10 @@
 ---
 name: refine-scope
-description: Explicit-only interview for refining the scope of a plan, decision, or idea before implementation. Use only when the user invokes refine-scope or directly asks to refine scope.
+description: Refine the scope of a plan, decision, or idea through a focused interview.
 disable-model-invocation: true
 ---
+
+Run only when the user explicitly invokes this skill.
 
 Interview the user relentlessly until you reach a shared understanding. Map this as a **design tree**: every decision branches into the decisions that hang off it.
 

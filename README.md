@@ -63,7 +63,7 @@ scripts/setup.sh --remove
 
 Use `--agents-dir PATH` or `--claude-dir PATH` to override a target, including for isolated tests.
 
-Claude reads `disable-model-invocation: true`; Codex reads `policy.allow_implicit_invocation: false` from `agents/openai.yaml`. OpenCode does not currently enforce either field, so explicit-only skills also state the restriction in their descriptions and bodies.
+Claude reads `disable-model-invocation: true`; Codex reads `policy.allow_implicit_invocation: false` from `agents/openai.yaml`. OpenCode does not currently enforce either field, so user-invoked skills also state the restriction in their bodies.
 
 ## Maintenance
 

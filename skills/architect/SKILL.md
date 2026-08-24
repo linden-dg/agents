@@ -1,10 +1,12 @@
 ---
 name: architect
-description: "Explicit-only workflow for designing types, interfaces, module boundaries, data flow, and ownership before implementation. Use only when the user invokes architect or directly asks for architectural design."
+description: Design types, interfaces, module boundaries, data flow, and ownership before implementation.
 disable-model-invocation: true
 ---
 
 # Architect
+
+Run only when the user explicitly invokes this skill.
 
 Design the shape before writing the implementation.
 

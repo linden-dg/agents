@@ -1,8 +1,10 @@
 ---
 name: audit-codebase-exhaustive
-description: "Explicit-only exhaustive whole-repository audit for materially useful simplifications. This workflow can consume substantial context and subagent budget; use only when the user directly invokes it."
+description: Audit an entire repository for materially useful simplifications.
 disable-model-invocation: true
 ---
+
+Run only when the user explicitly invokes this skill.
 
 Audit this entire codebase for materially useful simplifications in its data structures, state representation, control flow, algorithms, and ownership.
 
