@@ -1,14 +1,14 @@
 ---
-name: tdd
-description: Explicit-only test-driven development workflow. Use only when the user asks for TDD, test-first work, red-green-refactor, or explicitly invokes this skill.
+name: test-seams
+description: Explicit-only workflow for protecting selected public seams with behavior tests. Use only when the user asks to choose or test important seams, requests test-first work at an agreed interface, or explicitly invokes this skill.
 disable-model-invocation: true
 ---
 
-# Test-Driven Development
+# Test seams
 
-TDD is the red → green loop. This skill is the reference that makes that loop produce tests worth keeping: what a good test is, where tests go, the anti-patterns, and the rules of the loop. Every section applies on every cycle: consult them before and during the loop, not after.
+Protect selected public seams with tests worth keeping. Agree which seams and behaviors matter before writing tests. For each behavior selected for protection, use the red → green loop described below.
 
-When exploring the codebase, read `CONTEXT.md` (if it exists) so test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
+When exploring the codebase, read `docs/CANON.md` (if it exists) so test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
 
 ## What a good test is
 
@@ -24,7 +24,7 @@ A **seam** is the public boundary you test at: the interface where you observe b
 
 Ask: "What's the public interface, and which seams should we test?"
 
-When the shape of that interface is itself in question, stop before writing tests. Explain what is unclear and recommend that the user invoke `architect` to settle the seam before continuing TDD.
+When the shape of that interface is itself in question, stop before writing tests. Explain what is unclear and recommend that the user invoke `architect` to settle the seam before continuing.
 
 ## Anti-patterns
 
@@ -32,7 +32,7 @@ When the shape of that interface is itself in question, stop before writing test
 - **Tautological**: the assertion recomputes the expected value the way the code does (`expect(add(a, b)).toBe(a + b)`, a snapshot derived by hand the same way, a constant asserted equal to itself), so it passes by construction and can never disagree with the code. Expected values must come from an independent source of truth: a known-good literal, a worked example, the spec.
 - **Horizontal slicing**: writing all tests first, then all implementation. Bulk tests verify _imagined_ behavior: you test the _shape_ of things rather than user-facing behavior, the tests go insensitive to real changes, and you commit to test structure before understanding the implementation. Work in **vertical slices** instead: one test → one implementation → repeat, each test a **tracer bullet** that responds to what the last cycle taught you.
 
-## Rules of the loop
+## Test-first loop for selected seams
 
 - **Red before green.** Write the failing test first, then only enough code to pass it. Don't anticipate future tests or add speculative features.
 - **One slice at a time.** One seam, one test, one minimal implementation per cycle.

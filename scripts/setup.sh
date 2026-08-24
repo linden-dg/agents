@@ -2,6 +2,7 @@
 set -euo pipefail
 
 repo_dir=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd -P)
+skills_dir="$repo_dir/skills"
 agents_dir="${HOME}/.agents/skills"
 claude_dir="${HOME}/.claude/skills"
 target_mode=both
@@ -53,12 +54,12 @@ while (($#)); do
 done
 
 skills=()
-for skill_file in "$repo_dir"/*/SKILL.md; do
+for skill_file in "$skills_dir"/*/SKILL.md; do
   [[ -f "$skill_file" ]] || continue
   skills+=("$(basename "$(dirname "$skill_file")")")
 done
 
-retired=(audit-codebase codebase-design improve index-knowledge)
+retired=(arena audit-codebase codebase-design grilling improve index-knowledge tdd)
 failures=0
 
 remove_owned_link() {
@@ -74,7 +75,7 @@ remove_owned_link() {
 }
 
 process_target() {
-  local target=$1 skill source link old
+  local target=$1 skill source legacy_source link old
 
   if [[ "$action" == install && ! -d "$target" ]]; then
     if [[ "$dry_run" == true ]]; then
@@ -85,13 +86,22 @@ process_target() {
   fi
 
   for skill in "${skills[@]}"; do
-    source="$repo_dir/$skill"
+    source="$skills_dir/$skill"
+    legacy_source="$repo_dir/$skill"
     link="$target/$skill"
 
     case "$action" in
       install)
         if [[ -L "$link" && "$(readlink "$link")" == "$source" ]]; then
           continue
+        elif [[ -L "$link" && "$(readlink "$link")" == "$legacy_source" ]]; then
+          if [[ "$dry_run" == true ]]; then
+            printf 'Would relink %s -> %s\n' "$link" "$source"
+          else
+            unlink "$link"
+            ln -s "$source" "$link"
+            printf 'Relinked %s -> %s\n' "$link" "$source"
+          fi
         elif [[ -e "$link" || -L "$link" ]]; then
           printf 'Refusing to replace unrelated path: %s\n' "$link" >&2
           failures=$((failures + 1))
@@ -108,18 +118,23 @@ process_target() {
           failures=$((failures + 1))
         fi
         ;;
-      remove) remove_owned_link "$link" "$source" ;;
+      remove)
+        remove_owned_link "$link" "$source"
+        remove_owned_link "$link" "$legacy_source"
+        ;;
     esac
   done
 
   for old in "${retired[@]}"; do
     link="$target/$old"
-    source="$repo_dir/$old"
-    if [[ "$action" == verify && -L "$link" && "$(readlink "$link")" == "$source" ]]; then
+    source="$skills_dir/$old"
+    legacy_source="$repo_dir/$old"
+    if [[ "$action" == verify && -L "$link" && ( "$(readlink "$link")" == "$source" || "$(readlink "$link")" == "$legacy_source" ) ]]; then
       printf 'Retired repository link remains: %s\n' "$link" >&2
       failures=$((failures + 1))
     elif [[ "$action" != verify ]]; then
       remove_owned_link "$link" "$source"
+      remove_owned_link "$link" "$legacy_source"
     fi
   done
 }

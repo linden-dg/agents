@@ -1,0 +1,5 @@
+interface:
+  display_name: "Refine Scope"
+  short_description: "Turn ambiguity into an agreed planning brief"
+policy:
+  allow_implicit_invocation: false

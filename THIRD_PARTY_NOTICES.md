@@ -4,9 +4,9 @@ This file is the source map for copied and adapted skills. It is intentionally s
 
 | Source | Pinned revision | Used for |
 | --- | --- | --- |
-| [Cursor pstack](https://github.com/cursor/plugins/tree/main/pstack) | `46125561306434d8a1d7745d540d8932ab0cd2a2` | `unslop`, `prove-it-works`, `regression-test`, `blast-radius`, `arena` |
+| [Cursor pstack](https://github.com/cursor/plugins/tree/main/pstack) | `46125561306434d8a1d7745d540d8932ab0cd2a2` | `unslop`, `prove-it-works`, `regression-test`, `blast-radius`, `competitive-workflow` from upstream `arena`; approval and durable-learning guidance used by `canon` |
 | [Cursor Team Kit](https://github.com/cursor/plugins/tree/main/cursor-team-kit) | `46125561306434d8a1d7745d540d8932ab0cd2a2` | `deslop` |
-| [Matt Pocock skills](https://github.com/mattpocock/skills) | `5b15a47f2d7150f545fbcacbfe381787fc0230dc` | `diagnosing-bugs`, `wizard`, `grilling`, `tdd`, and the architecture vocabulary reference |
+| [Matt Pocock skills](https://github.com/mattpocock/skills) | `5b15a47f2d7150f545fbcacbfe381787fc0230dc` | `diagnosing-bugs`, `wizard`, `refine-scope` from upstream `grilling`, `test-seams` from upstream `tdd`, `canon`, and the architecture vocabulary reference |
 | [FetchUpstream pstack port](https://github.com/FetchUpstream/pstack-plugin) | `ba2205db1f83295154e31abc762f533954f581bb` | `how`, `why`, `architect` |
 
 The local versions change invocation controls, host-specific tooling, dependencies between skills, reporting formats, and budget defaults. `unslop` is retained without substantive instruction changes.

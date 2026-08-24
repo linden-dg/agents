@@ -1,4 +1,4 @@
-# Good and Bad Tests
+# Good and bad tests
 
 ## Good Tests
 

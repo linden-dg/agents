@@ -1,0 +1,5 @@
+interface:
+  display_name: "Test Seams"
+  short_description: "Protect selected interfaces with lasting tests"
+policy:
+  allow_implicit_invocation: false

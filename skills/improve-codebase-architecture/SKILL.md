@@ -48,4 +48,4 @@ Return a concise Markdown report ranked by value, confidence, effort, and blast 
 
 Do not generate or open HTML by default. If the user requests a visual report, or a diagram would materially clarify several relationships, recommend the external Plannotator visual plugin.
 
-After the user selects a candidate, recommend that they explicitly invoke `grilling` to settle constraints and decisions, then `architect` to design the interface and ownership. Do not invoke either explicit workflow automatically.
+After the user selects a candidate, recommend that they explicitly invoke `refine-scope` to settle constraints and decisions, then `architect` to design the interface and ownership. Do not invoke either explicit workflow automatically.

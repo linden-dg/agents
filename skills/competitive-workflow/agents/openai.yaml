@@ -1,0 +1,5 @@
+interface:
+  display_name: "Competitive Workflow"
+  short_description: "Select the best of competing agent attempts"
+policy:
+  allow_implicit_invocation: false

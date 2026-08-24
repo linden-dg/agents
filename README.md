@@ -26,15 +26,20 @@ These run only when requested. This keeps expensive, interactive, or highly opin
 | Skill | Purpose and cost |
 | --- | --- |
 | `bruh` | Restate the last message in plain human language, with no jargon. |
+| `canon` | Create or revisit the stable definitions in `docs/CANON.md`. |
 | `deslop` | Clean a named scope or current diff without changing behavior. |
-| `grilling` | Resolve a decision tree through rounds of user questions. |
+| `refine-scope` | Turn a vague idea or draft spec into an agreed planning brief. |
 | `architect` | Design types, ownership, interfaces, and flows before implementation. |
-| `arena` | Compare parallel attempts; defaults to two candidates and no cross-judge. |
-| `tdd` | Run a deliberate red-green test-first workflow. |
+| `competitive-workflow` | Run competing attempts, select a base, and incorporate the strongest parts. |
+| `test-seams` | Protect selected public interfaces with behavior tests. |
 | `audit-codebase-exhaustive` | Audit every subsystem; potentially high context and subagent cost. |
 | `improve-codebase-architecture` | Run a bounded, read-only search for deepening opportunities. |
 
 Plannotator remains an external plugin rather than a copied skill.
+
+## Project canon
+
+Projects may keep a small `docs/CANON.md` for stable, project-specific definitions. It is a glossary, not a scratchpad or decision log. Invoke `canon` to create or revise it; ordinary work may read it but must not update it automatically.
 
 ## Install
 

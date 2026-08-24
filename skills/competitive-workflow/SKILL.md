@@ -1,16 +1,16 @@
 ---
-name: arena
-description: "Explicit-only parallel-candidate workflow. Use only for /arena, 'arena this', or another direct request to compare multiple independent attempts."
+name: competitive-workflow
+description: "Explicit-only competitive workflow that runs independent attempts against one settled brief, selects a base, incorporates the strongest parts, and verifies the result. Use only when the user invokes competitive-workflow or directly requests competing attempts."
 disable-model-invocation: true
 ---
 
-# Arena
+# Competitive workflow
 
 Fan out N parallel attempts at the same task. Read every candidate end to end. Pick the strongest as the base. Graft the best ideas from the others into it. Verify the synthesized result.
 
 ## Start
 
-Create a task list with one entry per phase before launching anything. The arena runs autonomously and the list keeps phases from silently disappearing.
+Create a task list with one entry per phase before launching anything. The workflow runs autonomously and the list keeps phases from silently disappearing.
 
 1. Frame
 2. Fan out
@@ -62,9 +62,9 @@ When N candidates converge on the same shape, that is a strong agreement signal.
 
 ## Phase F: Verify
 
-Apply `prove-it-works` to the synthesized artifact. The arena does not earn you a pass.
+Apply `prove-it-works` to the synthesized artifact. The competition does not earn you a pass.
 
-If verification surfaces a problem the arena did not catch, either Phase A was wrong (re-frame and re-run) or one candidate caught it and you missed the graft (go back to Phase E). Don't paper over.
+If verification surfaces a problem the competition did not catch, either Phase A was wrong (re-frame and re-run) or one candidate caught it and you missed the graft (go back to Phase E). Don't paper over.
 
 ## Outputs
 

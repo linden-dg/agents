@@ -1,6 +1,6 @@
 ---
 name: regression-test
-description: "Add a focused failing regression check before fixing a bug when an obvious cheap local test target exists. Skip when the test path is unclear, expensive, integration-heavy, or would produce a low-value test. Use the explicit tdd skill for a full test-driven workflow."
+description: "Add a focused failing regression check before fixing a bug when an obvious cheap local test target exists. Skip when the test path is unclear, expensive, integration-heavy, or would produce a low-value test. Use the explicit test-seams skill to protect selected public interfaces during implementation."
 ---
 
 # TDD Bug Fix
