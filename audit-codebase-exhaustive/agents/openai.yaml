@@ -1,0 +1,5 @@
+interface:
+  display_name: "Audit Codebase Exhaustive"
+  short_description: "Exhaustively audit a whole codebase"
+policy:
+  allow_implicit_invocation: false

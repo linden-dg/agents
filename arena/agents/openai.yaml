@@ -1,0 +1,5 @@
+interface:
+  display_name: "Arena"
+  short_description: "Compare parallel candidates under a fixed budget"
+policy:
+  allow_implicit_invocation: false
