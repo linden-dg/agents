@@ -8,7 +8,7 @@ disable-model-invocation: true
 
 Run only when the user explicitly invokes this skill.
 
-Clean the scope the user named. If none was named, inspect the current diff against the repository's detected base branch. Do not assume the base is `main`.
+Clean the scope the user named. If none was named, inspect the current diff against the repository's detected base branch.
 
 ## Focus Areas
 

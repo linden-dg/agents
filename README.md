@@ -16,7 +16,7 @@ These may be selected when their descriptions match the task.
 | `blast-radius` | Trace callers, contracts, and downstream effects of a change. |
 | `how` | Explain how an existing system works from source evidence. |
 | `why` | Recover rationale from code, history, and available context. |
-| `code-review` | Review a diff separately against repository standards and its spec. |
+
 | `wizard` | Build an interactive script for setup steps only a human can perform. |
 
 ## User-invoked skills
@@ -28,6 +28,7 @@ These run only when requested. This keeps expensive, interactive, or highly opin
 | `bruh` | Restate the last message in plain human language, with no jargon. |
 | `canon` | Create or revisit the stable definitions in `docs/CANON.md`. |
 | `commit` | Describe and finalize the current Jujutsu change. |
+| `code-review` | Review a diff separately against repository standards and its spec. |
 | `deslop` | Clean a named scope or current diff without changing behavior. |
 | `refine-scope` | Turn a vague idea or draft spec into an agreed planning brief. |
 | `architect` | Design types, ownership, interfaces, and flows before implementation. |
