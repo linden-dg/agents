@@ -16,7 +16,6 @@ These may be selected when their descriptions match the task.
 | `blast-radius` | Trace callers, contracts, and downstream effects of a change. |
 | `how` | Explain how an existing system works from source evidence. |
 | `why` | Recover rationale from code, history, and available context. |
-
 | `wizard` | Build an interactive script for setup steps only a human can perform. |
 
 ## User-invoked skills
@@ -66,6 +65,22 @@ scripts/setup.sh --remove
 Use `--agents-dir PATH` or `--claude-dir PATH` to override a target, including for isolated tests.
 
 Claude reads `disable-model-invocation: true`; Codex reads `policy.allow_implicit_invocation: false` from `agents/openai.yaml`. OpenCode does not currently enforce either field, so user-invoked skills also state the restriction in their bodies.
+
+## Global instructions
+
+The shared writing rules in `globals/AGENTS.md` and `globals/CLAUDE.md` apply
+`unslop` to conversation as well as authored documents. Install their symlinks
+separately from the skills:
+
+```bash
+scripts/setup-globals.sh
+```
+
+The script links `AGENTS.md` for Codex and OpenCode, and `CLAUDE.md` for Claude
+Code. It refuses to replace existing files or unrelated links. Use `--dry-run`,
+`--verify`, or `--remove` to inspect, check, or undo the change. The
+`--codex-file`, `--claude-file`, and `--opencode-file` options provide isolated
+targets for testing.
 
 ## Maintenance
 
