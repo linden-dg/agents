@@ -1,0 +1,5 @@
+interface:
+  display_name: "Data Structures Audit"
+  short_description: "Audit the codebase for simplifications"
+policy:
+  allow_implicit_invocation: false

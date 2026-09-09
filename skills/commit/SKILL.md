@@ -59,9 +59,17 @@ Use the repository's format. Unless it says otherwise:
 - Describe the result, not the activity. Do not restate the type and do not add a trailing period.
 - Aim for a 20 to 30 character short description. Do not exceed 50 characters unless the project file permits it.
 
-Most changes need no body. Add one only for durable information the diff does not show, such as a tradeoff, non-obvious behavior, or a constraint future work must preserve. Leave out investigation history, reproduction steps, measurements, and a repetition of the subject.
+Do not write a paragraph in the body.
 
-For a necessary cross-area change, keep one primary marker in the subject. The body may use project-defined markers in short bullets for distinct secondary changes.
+Add one only for durable information the diff does not show, such as a tradeoff, non-obvious behavior, or a constraint future work must preserve. Before you write a paragraph body, tell the user two things:
+- the one fact the future reader needs
+- where the diff does not show that fact
+
+Do not write the paragraph if the fact is already in the change.
+Look in the code comments, the docstrings, the variable descriptions
+and the docs. Do not write the paragraph to repeat the subject line.
+
+This rule is only about paragraphs. For a necessary cross-area change, keep one primary marker in the subject. The body may use project-defined markers in short bullets for distinct secondary changes.
 
 ## Finalize and verify
 
