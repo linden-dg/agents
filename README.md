@@ -33,6 +33,7 @@ These run only when requested. This keeps expensive, interactive, or highly opin
 | `refine-scope` | Turn a vague idea or draft spec into an agreed planning brief. |
 | `architect` | Design types, ownership, interfaces, and flows before implementation. |
 | `competitive-workflow` | Run competing attempts, select a base, and incorporate the strongest parts. |
+| `orchestrator` | Run a phased plan with one subagent per change, jj changes, and phase gates. |
 | `test-seams` | Protect selected public interfaces with behavior tests. |
 | `audit-codebase-exhaustive` | Audit every subsystem; potentially high context and subagent cost. |
 | `improve-codebase-architecture` | Run a bounded, read-only search for deepening opportunities. |
