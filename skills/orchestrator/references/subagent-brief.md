@@ -45,16 +45,22 @@ Read each file in full and apply it to your change. This brief counts as the
 explicit invocation for any user-invoked skill listed here.
 
 - `~/.agents/skills/stay-in-scope/SKILL.md`, throughout.
+- `~/.agents/skills/how/SKILL.md`, before changing a runtime path you haven't
+  read yet. Skip it for code you already understand.
 - `~/.agents/skills/prove-it-works/SKILL.md`, before you report.
 - `~/.agents/skills/deslop/SKILL.md`, as a final pass on your own diff. Use its
   focus areas and guardrails, plus the extra focus areas in the language
-  references. Limit the scope to your own diff.
+  references. Limit the scope to your own diff. Then re-run the checks the
+  deslop edits affect, so your report describes the final diff.
 - `~/.agents/skills/blast-radius/SKILL.md`, only when the orchestrator asks for
   it. Use the hotspots in `repo.md` for its "look where grep stops" step.
 
 ## Report back to the orchestrator (concise)
 
 - Files changed and what each change does.
-- Check commands run and their actual results. Paste the summary lines.
+- Each check you were asked to run, marked passed, failed or not run, with
+  the exact command and its summary lines.
+- Acceptance criteria met, and any you couldn't verify, with the blocker.
+- Never report the change as done on a typecheck alone.
 - Any deviation from the plan, judgement calls, open questions, and unrelated
   problems you noticed but did not fix.

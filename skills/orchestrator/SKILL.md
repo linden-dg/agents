@@ -19,8 +19,10 @@ their summary, then accept it, fix it, or escalate to the user.
    hotspots for this repository. If it is missing, stop. Offer to draft it from
    [references/repo-template.md](references/repo-template.md) and wait for the
    user to approve the draft.
-2. Read the plan's README or overview, its "Decided gate items", and the next
-   phase file.
+2. Read the plan's README, its change table, its "Decided gate items",
+   `design.md` when present, and the next phase file. Plans written by
+   `prepare-orchestration` have this shape. If the plan has no model and
+   effort per change, stop and offer to run `prepare-orchestration` first.
 3. Pick every language reference that matches the code the phase touches:
    [references/typescript.md](references/typescript.md),
    [references/python.md](references/python.md) or
@@ -36,10 +38,11 @@ their summary, then accept it, fix it, or escalate to the user.
 
 ## Subagents
 
-- One subagent per numbered change, Claude Opus or Codex Sol, at low or medium
-  effort.
-- Use high effort only for a particularly complex change or after a subagent
-  has failed, and ask the user first. Record each approval in the plan README.
+- One subagent per numbered change, using the model and effort the plan
+  assigns it. Any deviation, such as high effort after a failed attempt, goes
+  to the user first. Record each approval in the plan README.
+- Work in the main workspace. Run one editing subagent at a time, and no
+  worktrees unless the user asks for one.
 - Subagents can't always load skills, so they work from files. Every prompt
   starts by telling the subagent to read these in full:
   - `~/.agents/skills/orchestrator/references/subagent-brief.md`
@@ -48,9 +51,12 @@ their summary, then accept it, fix it, or escalate to the user.
 - For a risky change, also point it at `~/.agents/skills/blast-radius/SKILL.md`
   and the hotspots section of `repo.md`.
 - After the reading list, each prompt gives:
-  - the change number and its plan section;
+  - the change number and its plan section, plus `design.md` when the plan
+    has one;
   - the files to read and the sibling code to follow;
   - the user decisions that apply;
+  - accepted prior contracts and deviations from earlier changes, since a
+    subagent can't see its siblings' work;
   - acceptance criteria, one per line;
   - explicit stop conditions;
   - the focused checks to run.
@@ -71,17 +77,32 @@ their summary, then accept it, fix it, or escalate to the user.
   (`~/.agents/skills/commit/SKILL.md`) and the repository's
   `docs/git-conventions.md`. Take the message rules only, not its `jj commit`
   step.
-- The only mutating command you may run is `jj new -m "<description>"`. One
-  change per numbered plan change, created before delegating. Use the
-  description the phase file gives when it has one. No bookmarks.
+- The only mutating command you may run is `jj new`. One change per numbered
+  plan change, created before delegating. Use the description the phase file
+  gives when it has one. No bookmarks.
+- Before the first `jj new` of a session, run `jj status` and `jj log`. If `@`
+  holds edits that aren't part of the plan, stop and ask the user how to
+  proceed. Never sweep them into a plan change.
+- Create each change on the accepted stack head with
+  `jj new <head> -m "<description>"`, and record its stable change ID. Review
+  and report by that ID, never by whatever `@` points to after a subagent has
+  run.
 - Never modify an existing change. No `jj describe`, `jj edit`, `squash`,
-  `rebase`, `abandon` or `split`. The user does the squashes. The working-copy
-  change you just created can take file edits while it is still unreviewed;
-  once you move on, it is an existing change.
-- Fixes to an existing change, a subagent's or your own, go in a new change at
-  the top of the stack. Prefix it `SQUASH` and name the target in the body,
-  using the target's area marker:
-  `jj new -m "SQUASH <marker> fix: <what>" -m "Squash into <change id>"`.
+  `rebase`, `abandon` or `split`.
+  The user does the squashes. The working-copy change you just created can take
+  file edits while it is still unreviewed; once you move on, it is an existing change.
+- Fixes to an existing change, a subagent's or your own, go in a new change
+  inserted directly after the change they fix, with a description that starts
+  with `SQUASH`.
+  - Each SQUASH change targets exactly one change, and names that change ID in
+    its subject or body. Fixes for two changes go in two SQUASH changes, so the
+    user never has to split one.
+  - If a SQUASH change introduces conflicts in later changes, resolve them with
+    another SQUASH inserted after the conflicted change, working from the bottom up.
+  - The rest of the description follows the repository's conventions and uses
+    the target's area marker, for example
+    `jj new --insert-after <change id> -m "SQUASH <marker> fix: <what>" -m "Squash into <change id>"`.
+  - Create a SQUASH change only when there is a fix to make.
 - If a change you created ends up empty, leave it and list it in the gate
   report.
 
@@ -95,8 +116,13 @@ their summary, then accept it, fix it, or escalate to the user.
    review of the whole phase diff from a read-only reviewer subagent. Give it
    the known and accepted items so it doesn't re-report them. Verify each
    finding yourself before reporting it.
-4. Stop at every phase gate. Stop earlier if a change hits a problem.
-5. The gate report covers:
+4. Stop at every phase gate. Stop earlier if a change hits a problem, or
+   grows past its plan because of a decision, such as a new concept, a
+   contract change or work in another area. Show the user what the decision
+   now costs and the simpler option before continuing.
+5. When the user changes scope mid-phase, edit the affected README decision
+   line and phase sections in place before the next change starts.
+6. The gate report covers:
    - the change list;
    - check results;
    - SQUASH changes and their targets;
@@ -104,9 +130,9 @@ their summary, then accept it, fix it, or escalate to the user.
    - decisions needed, each with your recommendation;
    - user-run steps such as manual review or testing;
    - unrelated issues found along the way, reported and not fixed.
-6. Record the gate's decisions in the plan README under "Decided gate items",
+7. Record the gate's decisions in the plan README under "Decided gate items",
    update the phase files those decisions affect, and mark the phase status.
-7. Start a fresh session at a phase boundary.
+8. Start a fresh session at a phase boundary.
 
 ## Writing
 

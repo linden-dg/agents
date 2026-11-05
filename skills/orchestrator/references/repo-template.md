@@ -30,6 +30,12 @@ Repository conventions a subagent would otherwise get wrong: patterns to
 follow, where tests go, error types, suppression syntax required by the
 linter, contracts that must not change without asking.
 
+## Effort guidance
+
+Optional. How this repository's kinds of change map to low and medium effort,
+used by `prepare-orchestration`. For example, which changes count as wiring
+onto settled contracts and which involve access rules or transactions.
+
 ## Blast-radius hotspots
 
 Where a symbol search stops in this repository: on-disk or wire formats,
