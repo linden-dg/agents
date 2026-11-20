@@ -25,7 +25,7 @@ Don't do either job at length here.
   `~/.agents/skills/orchestrator/references/repo-template.md` and wait for the
   user to approve the draft.
 - The nearest `AGENTS.md` or `CLAUDE.md` for each area the work touches,
-  `docs/CANON.md` when present, the brief, and the design.
+  the brief, and the design.
 - `docs/git-conventions.md` when present. Its area markers, such as one emoji
   per app or package, are the repository's own map of its logical sections.
   If it is absent, read recent `jj log` descriptions for the same pattern.

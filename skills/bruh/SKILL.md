@@ -7,4 +7,4 @@ disable-model-invocation: true
 
 Run only when the user explicitly invokes this skill.
 
-Restate your last message. Stop using jargon and speak coherently. State it more simply and concisely, like one human talking to another. Talk in ASD-STE100 Simplified Technical English and use the ubiquitous language from `docs/CANON.md` if available.
+Restate your last message. Stop using jargon and speak coherently. State it more simply and concisely, like one human talking to another. Talk in ASD-STE100 Simplified Technical English.

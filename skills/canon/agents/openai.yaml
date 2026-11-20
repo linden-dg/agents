@@ -1,5 +1,0 @@
-interface:
-  display_name: "Canon"
-  short_description: "Define stable project language"
-policy:
-  allow_implicit_invocation: false

@@ -10,7 +10,7 @@ Run only when the user explicitly invokes this skill.
 
 Protect selected public seams with tests worth keeping. Agree which seams and behaviors matter before writing tests. For each behavior selected for protection, use the red → green loop described below.
 
-When exploring the codebase, read `docs/CANON.md` (if it exists) so test names and interface vocabulary match the project's domain language, and respect ADRs in the area you're touching.
+When exploring the codebase, match test names and interface vocabulary to the project's domain language, and respect ADRs in the area you're touching.
 
 ## What a good test is
 

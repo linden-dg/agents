@@ -25,7 +25,6 @@ These run only when requested. This keeps expensive, interactive, or highly opin
 | Skill | Purpose and cost |
 | --- | --- |
 | `bruh` | Restate the last message in plain human language, with no jargon. |
-| `canon` | Create or revisit the stable definitions in `docs/CANON.md`. |
 | `commit` | Describe and finalize the current Jujutsu change. |
 | `review-changes` | Review a diff separately against repository standards and its spec. |
 | `deslop` | Clean a named scope or current diff without changing behavior. |
@@ -39,10 +38,6 @@ These run only when requested. This keeps expensive, interactive, or highly opin
 | `improve-codebase-architecture` | Run a bounded, read-only search for deepening opportunities. |
 
 Plannotator remains an external plugin rather than a copied skill.
-
-## Project canon
-
-Projects may keep a small `docs/CANON.md` for stable, project-specific definitions. It is a glossary, not a scratchpad or decision log. Invoke `canon` to create or revise it; ordinary work may read it but must not update it automatically.
 
 ## Install
 

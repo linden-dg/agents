@@ -1,7 +1,5 @@
 # Agent instructions
 
-Read `docs/CANON.md` when working with this repository's terminology.
-
 ## Source discipline
 
 Before creating or substantially changing a skill, inspect comparable skills
@@ -47,7 +45,10 @@ reduce conditional material in the main skill.
 
 ## Invocation policy
 
-Classify every skill as model-invoked or user-invoked.
+Classify every skill as model-invoked or user-invoked. A model-invoked skill
+may run when a request matches its description. A user-invoked skill runs only
+when the user names or selects it; a request that merely resembles its purpose
+does not invoke it.
 
 Use model invocation for small, predictable workflows that are broadly useful
 and cheap enough to run without a separate decision. Give them narrow
@@ -83,9 +84,6 @@ implementation, and tests added only to confirm work that was just done.
 Prefer no new test over a brittle or low-value test. Use a focused regression
 test when a bug has a cheap, correct test path. Use `test-seams` when the user
 deliberately selects interfaces worth protecting.
-
-Do not update `docs/CANON.md` during ordinary work. Invoke `canon` when a stable
-project-specific definition needs to be added or revised.
 
 ## Repository maintenance
 

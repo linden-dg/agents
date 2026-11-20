@@ -20,8 +20,6 @@ Read `docs/git-conventions.md` when it exists. It is authoritative for:
 - subject length and body rules;
 - repository-specific classification guidance.
 
-Read `docs/CANON.md` when it exists so the description uses the project's established language.
-
 If `docs/git-conventions.md` is absent, inspect recent Jujutsu descriptions for an established pattern. Use the shared defaults below only where the repository has no rule. Never invent an area marker. If the repository requires one and no mapping is available, ask the user.
 
 ## Inspect the whole change

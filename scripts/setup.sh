@@ -59,7 +59,7 @@ for skill_file in "$skills_dir"/*/SKILL.md; do
   skills+=("$(basename "$(dirname "$skill_file")")")
 done
 
-retired=(arena audit-codebase code-review codebase-design grilling improve index-knowledge tdd)
+retired=(arena audit-codebase canon code-review codebase-design grilling improve index-knowledge tdd)
 failures=0
 
 remove_owned_link() {
