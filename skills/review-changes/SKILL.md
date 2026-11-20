@@ -30,8 +30,8 @@ Look for the originating spec, in this order:
 1. The user's prompt or a path they supplied.
 2. Pull-request or issue context available through connected tools.
 3. Issue references and intent in change descriptions.
-4. A spec file under `docs/`, `specs/`, `.plans`,
-5.  or `.scratch/` matching the bookmark name or feature.
+4. A spec file under `docs/`, `specs/`, `.plans/`, or `.scratch/` 
+   matching the bookmark name or feature.
 5. If nothing is found, ask the user where the spec is. If they say there isn't one, the **Spec** sub-agent will skip and report "no spec available".
 
 ### 3. Identify the standards sources

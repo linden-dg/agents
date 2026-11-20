@@ -39,6 +39,8 @@ These run only when requested. This keeps expensive, interactive, or highly opin
 
 Plannotator remains an external plugin rather than a copied skill.
 
+See [docs/workflow.md](docs/workflow.md) for how the planning and orchestration skills fit together.
+
 ## Install
 
 Run:
