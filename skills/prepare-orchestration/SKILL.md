@@ -56,6 +56,9 @@ going back to `architect` rather than redesigning while splitting the work.
   the area dependencies decide it, such as schema and database before the
   services that use them, and services before the app UI. Each change ends in
   a check that proves it.
+- **Seams.** Each seam in the design's "Seams to protect" lands in the change
+  that builds or changes that interface, with the behaviours to pin. Changes
+  without an agreed seam add no kept test.
 - **Trace.** Every part of the design lands in some change. Name any part
   that doesn't, and say whether it is deferred.
 - **Phases.** Group changes into phases that end at a gate. Put a gate where

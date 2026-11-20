@@ -50,6 +50,8 @@ their summary, then accept it, fix it, or escalate to the user.
   - `.agents/orchestrator/repo.md`
 - For a risky change, also point it at `~/.agents/skills/blast-radius/SKILL.md`
   and the hotspots section of `repo.md`.
+- For a change with a "Seams" field, also point it at
+  `~/.agents/skills/test-seams/SKILL.md`.
 - After the reading list, each prompt gives:
   - the change number and its plan section, plus `design.md` when the plan
     has one;
@@ -114,7 +116,10 @@ their summary, then accept it, fix it, or escalate to the user.
    focused checks from `repo.md`, then accept or fix.
 3. Before each gate, run the full checks from `repo.md`. Then get a fresh-eyes
    review of the whole phase diff from a read-only reviewer subagent. Give it
-   the known and accepted items so it doesn't re-report them. Verify each
+   the plan README, `design.md` when present, and the phase file, and ask it
+   to check the diff against them as well as for code quality: requirements
+   of this phase that are missing or partial, and work nobody asked for. Give
+   it the known and accepted items so it doesn't re-report them. Verify each
    finding yourself before reporting it.
 4. Stop at every phase gate. Stop earlier if a change hits a problem, or
    grows past its plan because of a decision, such as a new concept, a

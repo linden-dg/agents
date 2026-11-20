@@ -36,8 +36,8 @@ location `.agents/orchestrator/repo.md` gives:
 
 ## design.md
 
-The agreed design from `architect`: usage, types, interfaces, ownership,
-module map, flow, alternatives and risks. Copy it as agreed; don't rewrite it.
+The agreed design from `architect`: usage, types, interfaces, seams to
+protect, ownership, module map, flow, alternatives and risks. Copy it as agreed; don't rewrite it.
 Omit the file when the plan had no separate design step.
 
 ## Phase files
@@ -56,6 +56,8 @@ model and effort live only in the README table.
   hotspots from `repo.md` that apply.
 - **Changes.** What changes and why, at a high level. No code.
 - **Acceptance.** Checkable criteria, one per line.
+- **Seams.** The agreed seams this change protects and the behaviours each
+  test pins. Omit the field when the change has none.
 - **Stop if.** Conditions where the subagent must stop and report instead of
   working around the problem.
 - **Checks.** The focused checks from `repo.md` that prove this change.

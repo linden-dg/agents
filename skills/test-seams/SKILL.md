@@ -24,7 +24,7 @@ A **seam** is the public boundary you test at: the interface where you observe b
 
 **Test only at pre-agreed seams.** Before writing any test, write down the seams under test and confirm them with the user. No test is written at an unconfirmed seam. You can't test everything, so agreeing the seams up front is how testing effort lands on the critical paths and complex logic instead of every edge case.
 
-Ask: "What's the public interface, and which seams should we test?"
+Ask: "What's the public interface, and which seams should we test?" When an agreed design or plan already lists the seams to protect, treat that list as confirmed.
 
 When the shape of that interface is itself in question, stop before writing tests. Explain what is unclear and recommend that the user invoke `architect` to settle the seam before continuing.
 

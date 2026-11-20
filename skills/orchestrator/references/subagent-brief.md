@@ -54,6 +54,9 @@ explicit invocation for any user-invoked skill listed here.
   deslop edits affect, so your report describes the final diff.
 - `~/.agents/skills/blast-radius/SKILL.md`, only when the orchestrator asks for
   it. Use the hotspots in `repo.md` for its "look where grep stops" step.
+- `~/.agents/skills/test-seams/SKILL.md` and its `tests.md` and `mocking.md`,
+  only when your change section has a "Seams" field. Those seams are already
+  confirmed with the user. Write kept tests at those seams only.
 
 ## Report back to the orchestrator (concise)
 

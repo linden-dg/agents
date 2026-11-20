@@ -252,6 +252,12 @@ The important domain types and states.
 
 The functions or methods that form the contract.
 
+### Seams to protect
+
+Which of these interfaces get tests worth keeping, and the behaviours each
+test should pin. Confirm the list with the user. An interface not listed gets
+no kept test. Leave this empty when nothing needs protecting.
+
 ### Ownership
 
 Which component owns each important rule or state transition.
