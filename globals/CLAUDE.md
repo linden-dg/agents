@@ -27,3 +27,18 @@ writing starts to drift from its guidance.
 - After writing a plan or spec, list the design choices made that the
   user did not state.
 - A question is not an instruction. Answer it and change nothing.
+
+## Tests
+
+Keep a test only when it:
+
+- keeps a public interface or seam stable for the code that relies on it;
+- guards against drift or a regression likely to return;
+- covers a non-obvious edge case.
+
+You may write a temporary test while working, for example to check that a
+refactor kept its behaviour. Delete it before handing the change back for
+review. Do not keep tests that only show the current change works, restate
+configuration, test a library's own behaviour, or reach into private internals.
+Prefer no test over a weak one, and say in the reply when you chose to add none.
+When you used a temporary test, say what it checked and that you deleted it.

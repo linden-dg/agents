@@ -45,7 +45,7 @@ going back to `architect` rather than redesigning while splitting the work.
 ## 3. Break the work down
 
 - **Changes.** Each numbered change is one logical change the user can review
-  on its own. Aim for one function or type plus its tests, or one fix,
+  on its own. Aim for one function or type plus any test it warrants, or one fix,
   usually two or three files. Split a change that mixes several behaviours.
 - **Areas.** Each change has one honest primary area marker, since its
   description takes exactly one. Work that spans areas usually splits along

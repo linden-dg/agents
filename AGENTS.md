@@ -77,13 +77,8 @@ For user-invoked skills:
 Use Jujutsu as the source-control model. Do not introduce Git-specific commands
 or branch assumptions unless the skill explicitly supports Git as well.
 
-Tests should protect selected public behavior, important seams, invariants, and
-edge cases. Avoid tests coupled to private implementation, tests that repeat the
-implementation, and tests added only to confirm work that was just done.
-
-Prefer no new test over a brittle or low-value test. Use a focused regression
-test when a bug has a cheap, correct test path. Use `test-seams` when the user
-deliberately selects interfaces worth protecting.
+Use a focused regression test when a bug has a cheap, correct test path. Use
+`test-seams` when the user deliberately selects interfaces worth protecting.
 
 ## Repository maintenance
 
